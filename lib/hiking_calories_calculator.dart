@@ -1,0 +1,1 @@
+library hiking_calories_calculator;
