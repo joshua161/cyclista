@@ -61,7 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     twilioFlutter = TwilioFlutter(
         accountSid: 'ACd95fe23026edf40c6afe24fc443428e1',
-        authToken: 'ed20f6742e59d56a324bc5c77df743a7',
+        authToken: 'fdc5399a1d9dff73757aa1d70fc6a9a0',
         twilioNumber: '+13204463421');
 
     super.initState();
@@ -71,7 +71,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void sendSms() {
     twilioFlutter.sendSMS(
-        toNumber: '+639980516693', messageBody: 'Alert I need Help!');
+        toNumber: '+639980516693',
+        messageBody:
+            "LAT: ${_locationData.latitude}, LNG: ${_locationData.longitude}");
   }
 
   bool navBarMode = false;
