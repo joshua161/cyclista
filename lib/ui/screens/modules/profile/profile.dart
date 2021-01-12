@@ -42,7 +42,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       setState(() {});
     }
   }*/
-
+     
   Widget build(BuildContext context) {
     appState = StateWidget.of(context).state;
     final userCheck = appState?.firebaseUserAuth?.uid ?? '';
@@ -107,6 +107,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
 //check for null https://stackoverflow.com/questions/49775261/check-null-in-ternary-operation
       // final userId = appState?.firebaseUserAuth?.uid ?? '';
+   
+     void phone(){
+       final phoneNumber = appState?.user?.phoneNumber ?? '';
+
+     }
+     
       final email = appState?.firebaseUserAuth?.email ?? '';
       final firstName = appState?.user?.firstName ?? '';
       final lastName = appState?.user?.lastName ?? '';

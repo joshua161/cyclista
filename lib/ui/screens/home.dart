@@ -27,7 +27,7 @@ import 'package:location/location.dart';
 import 'package:flutter_mapbox_navigation/library.dart';
 import 'package:permission_handler/permission_handler.dart' as ph;
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
-
+import 'package:cyclista/ui/screens/modules/profile/profile.dart';
 import 'package:twilio_flutter/twilio_flutter.dart';
 import 'package:flutter/material.dart';
 
@@ -39,6 +39,7 @@ const kApiKey = MyApp.ACCESS_TOKEN;
 
 class _HomeScreenState extends State<HomeScreen> {
   StateModel appState;
+
   TwilioFlutter twilioFlutter;
 
   bool _loadingVisible = false;
@@ -70,10 +71,11 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void sendSms() {
+    var phoneNumber = appState?.user?.phoneNumber ?? '';
     twilioFlutter.sendSMS(
-        toNumber: '+639980516693',
+        toNumber: "$phoneNumber",
         messageBody:
-            "LAT: ${_locationData.latitude}, LNG: ${_locationData.longitude}");
+            "Alert Need Help! Here's my current location coordinates. LAT: ${_locationData.latitude}, LNG: ${_locationData.longitude}");
   }
 
   bool navBarMode = false;
